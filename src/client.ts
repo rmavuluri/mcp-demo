@@ -1,6 +1,7 @@
 import { MessageParam } from "@anthropic-ai/sdk/resources/messages/messages.mjs";
 import { LLMMCPIntegration } from './llm-mcp-integration';
 import { LLMClient } from './llm-client';
+import { McpClientLogger } from './logger';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -14,10 +15,12 @@ export class MCPClient {
   private integration: LLMMCPIntegration;
   private llmClient: LLMClient;
   private tools: any[] = [];
+  private logger: McpClientLogger;
 
   constructor() {
     this.integration = new LLMMCPIntegration();
     this.llmClient = new LLMClient();
+    this.logger = new McpClientLogger(this.integration.client, 'debug');
   }
 
   async connectToServer(serverScriptPath: string) {

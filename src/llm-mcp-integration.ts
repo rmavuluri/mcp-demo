@@ -14,6 +14,13 @@ class LLMMCPIntegration {
   private formattedTools: Tool[] = [];
   private capabilityManager: CapabilityManager;
 
+  get client(): Client {
+    if (!this.mcpClient) {
+      throw new Error('MCP client not initialized');
+    }
+    return this.mcpClient;
+  }
+
   getFormattedTools(): Tool[] {
     return this.formattedTools;
   }
