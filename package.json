@@ -1,0 +1,37 @@
+{
+  "name": "mcp-demo",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx src/server.ts",
+    "test:server": "npm run build && npx @modelcontextprotocol/inspector node dist/server.js",
+    "test:client": "npm run build && npx @modelcontextprotocol/inspector node dist/client.js",
+    "test:dev": "npx @modelcontextprotocol/inspector tsx src/server.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0",
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "tsx": "^4.19.4",
+    "zod": "^3.25.43",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.29",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
