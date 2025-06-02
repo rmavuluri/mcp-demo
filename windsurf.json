@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "servers": [
+    {
+      "name": "MCP Task Server",
+      "type": "node",
+      "script": "src/server.ts",
+      "env": {
+        "NODE_ENV": "development",
+        "MCP_SERVER_PORT": "3000",
+        "MCP_SERVER_HOST": "localhost"
+      },
+      "watch": ["src/**/*"],
+      "restart": true,
+      "port": 3000,
+      "transport": "stdio",
+      "log": {
+        "level": "debug",
+        "output": "console"
+      }
+    }
+  ]
+}
